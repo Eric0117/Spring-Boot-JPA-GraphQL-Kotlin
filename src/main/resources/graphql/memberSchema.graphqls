@@ -1,0 +1,22 @@
+schema {
+    query: Query,
+    mutation: Mutation
+}
+
+type Member {
+    id: ID!
+    email: String!
+}
+
+type Query {
+    getAllMembers: [Member]
+}
+
+type Mutation {
+    saveMember(saveMemberInfo: SaveMemberInfo!): Member
+}
+
+input SaveMemberInfo {
+    email: String!
+    password: String!
+}

@@ -1,3 +1,5 @@
+Insert into member(email, password, created_at, modified_at) values ('abc@abc.com','1234',Now(),Now())
+
 Insert into product(name, thumbnail, price, created_at, modified_at) values ('product_0','https://image.com/products/thumbnail/product_0.jpeg',140500,Now(),Now())
     Insert into product(name, thumbnail, price, created_at, modified_at) values ('product_1','https://image.com/products/thumbnail/product_1.jpeg',18000,Now(),Now())
 Insert into product(name, thumbnail, price, created_at, modified_at) values ('product_2','https://image.com/products/thumbnail/product_2.jpeg',68700,Now(),Now())
