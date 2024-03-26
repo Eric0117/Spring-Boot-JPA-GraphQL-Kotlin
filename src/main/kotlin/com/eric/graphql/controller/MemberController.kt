@@ -1,8 +1,9 @@
 package com.eric.graphql.controller
 
 import com.eric.graphql.domain.Member
-import com.eric.graphql.dto.MemberSaveRequestDTO
-import com.eric.graphql.repository.MemberRepository
+import com.eric.graphql.dto.request.MemberSaveRequestDTO
+import com.eric.graphql.dto.response.MemberGetResponseDTO
+import com.eric.graphql.dto.response.MemberSaveResponseDTO
 import com.eric.graphql.service.MemberService
 import org.springframework.graphql.data.method.annotation.Argument
 import org.springframework.graphql.data.method.annotation.MutationMapping
@@ -15,14 +16,14 @@ class MemberController(
 ) {
 
     @QueryMapping
-    fun getAllMembers() : List<Member> {
+    fun getAllMembers() : List<MemberGetResponseDTO> {
         return memberService.getAllMembers()
     }
 
     @MutationMapping
     fun saveMember(
         @Argument saveMemberInfo: MemberSaveRequestDTO
-    ) : Member {
+    ) : MemberSaveResponseDTO {
         return memberService.saveMember(saveMemberInfo)
     }
 }

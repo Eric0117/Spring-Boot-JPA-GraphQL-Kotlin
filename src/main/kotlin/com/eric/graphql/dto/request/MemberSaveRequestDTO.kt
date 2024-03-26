@@ -1,4 +1,4 @@
-package com.eric.graphql.dto
+package com.eric.graphql.dto.request
 
 import com.eric.graphql.domain.Member
 
