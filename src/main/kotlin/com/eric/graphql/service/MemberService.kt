@@ -1,5 +1,6 @@
 package com.eric.graphql.service
 
+import com.eric.graphql.domain.Member
 import com.eric.graphql.dto.request.MemberSaveRequestDTO
 import com.eric.graphql.dto.response.MemberGetResponseDTO
 import com.eric.graphql.dto.response.MemberSaveResponseDTO
@@ -11,6 +12,13 @@ import org.springframework.transaction.annotation.Transactional
 class MemberService(
     private val memberRepository: MemberRepository,
 ) {
+
+    @Transactional(readOnly = true)
+    fun getMember(memberId: Long): Member {
+        return memberRepository.findById(memberId).orElseThrow {
+            Exception("Member Not Exist")
+        }
+    }
 
     @Transactional(readOnly = true)
     fun getAllMembers(): List<MemberGetResponseDTO> {

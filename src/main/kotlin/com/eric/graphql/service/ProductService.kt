@@ -13,7 +13,7 @@ class ProductService(
     @Transactional
     fun getProduct(id: Long): Product {
         return productRepository.findById(id).orElseThrow {
-            throw Exception("dd")
+            throw Exception("Product Not Exist")
         }
     }
 }

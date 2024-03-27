@@ -1,0 +1,4 @@
+extend type Mutation {
+    addProductLike(productId: Int!, memberId: Int!): Boolean
+    deleteProductLike(productId: Int!, memberId: Int!): Boolean
+}
