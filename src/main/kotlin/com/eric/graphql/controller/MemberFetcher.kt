@@ -1,28 +1,27 @@
 package com.eric.graphql.controller
 
-import com.eric.graphql.domain.Member
 import com.eric.graphql.dto.request.MemberSaveRequestDTO
 import com.eric.graphql.dto.response.MemberGetResponseDTO
 import com.eric.graphql.dto.response.MemberSaveResponseDTO
 import com.eric.graphql.service.MemberService
-import org.springframework.graphql.data.method.annotation.Argument
-import org.springframework.graphql.data.method.annotation.MutationMapping
-import org.springframework.graphql.data.method.annotation.QueryMapping
-import org.springframework.stereotype.Controller
+import com.netflix.graphql.dgs.DgsComponent
+import com.netflix.graphql.dgs.DgsMutation
+import com.netflix.graphql.dgs.DgsQuery
+import com.netflix.graphql.dgs.InputArgument
 
-@Controller
-class MemberController(
+
+@DgsComponent
+class MemberFetcher(
     private val memberService: MemberService,
 ) {
-
-    @QueryMapping
+    @DgsQuery
     fun getAllMembers() : List<MemberGetResponseDTO> {
         return memberService.getAllMembers()
     }
 
-    @MutationMapping
+    @DgsMutation
     fun saveMember(
-        @Argument saveMemberInfo: MemberSaveRequestDTO
+        @InputArgument saveMemberInfo: MemberSaveRequestDTO
     ) : MemberSaveResponseDTO {
         return memberService.saveMember(saveMemberInfo)
     }

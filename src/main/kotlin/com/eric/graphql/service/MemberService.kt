@@ -1,6 +1,5 @@
 package com.eric.graphql.service
 
-import com.eric.graphql.domain.Member
 import com.eric.graphql.dto.request.MemberSaveRequestDTO
 import com.eric.graphql.dto.response.MemberGetResponseDTO
 import com.eric.graphql.dto.response.MemberSaveResponseDTO
